@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Class 语法</title>
+</head>
+<body>
+  <h1>class 语法演示，请打开控制台观察 console.log</h1>
+
+  <script>
+    // 原型方法创建类
+    class Rectangle{
+      constructor(height, width){ // 其用于创建和初始化使用一个类创建的对象
+        this.height = height
+        this.width = width
+      }
+      // get 计算属性 语法将对象属性绑定到查询该属性时将被调用的函数 计算属性
+      get area(){
+        return this.calcArea()
+      }
+      calcArea(){
+        return this.height * this.width
+      }
+    }
+    const square = new Rectangle(6, 10)
+
+    console.log(square.area)
+
+
+    // 静态方法创建类
+    class Point{
+      constructor(x, y){
+        this.x = x
+        this.y = y
+      }
+      // 不能通过一个类实例调用静态方法
+      static distance(a, b){
+        const dx = a.x - b.x
+        const dy = a.y - b.y
+        return Math.hypot(dx, dy) // 返回参数平方和的平方根
+      }
+    }
+
+    const p1 = new Point(5, 5)
+    const p2 = new Point(10, 10)
+
+    console.log(Point.distance(p1, p2))
+
+
+    // 使用 extends 创建子类 （extends 也可以扩展传统的基于函数的“类”）
+    class Animal{
+      constructor(name){
+        this.name = name
+      }
+      speak(){
+        console.log(this.name + ' make a noise.')
+      }
+    }
+
+    class Dog extends Animal{
+      speak(){
+        super.speak() // super 关键字用于调用对象的父对象上的函数
+        console.log(this.name + ' barks.')
+      }
+    }
+
+    var d = new Dog('Bob')
+    d.speak() // 输出 Bob make a noise. Bob barks.
+
+  </script>
+
+</body>
+</html>

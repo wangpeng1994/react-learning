@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Composing Components抽离组件</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+
+	<script type="text/babel">
+    function Comment(props){
+      return (
+        <div className="Comment">
+          <div className="UserInfo">
+            <img className="Avatar"
+              src={props.author.avatarUrl}
+              alt={props.author.name}
+            />
+            <div className="UserInfo-name">
+              {props.author.name}
+            </div>
+          </div>
+          <div className="Comment-text">
+            {props.text}
+          </div>
+          <div className="Comment-date">
+            {formatDate(props.date)}
+          </div>
+        </div>
+      )
+    }
+
+    // 抽离以上组件:
+
+    // 头像组件不必关心会在哪里嵌入,因此 props 对象中使用了 user 而不是狭义 author
+    // props 对象的命名多从组件本身考虑, 而不是根据具体使用场景中的上下文
+    function Avatar(props){
+      return (
+        <img className="Avatar"
+          src={props.user.avatarUrl}
+          alt={props.user.name}
+        />
+      )
+    }
+
+    // 以上 Comment 评论组件简化为:
+    // props: {
+    //   user: props.author
+    // }
+    function Comment(props){
+      return (
+        <div className="Comment">
+          <div className="UserInfo">
+            <Avatar user={props.author} />
+            <div className="UserInfo-name">
+              {props.author.name}
+            </div>
+          </div>
+          <div className="Comment-text">
+            {props.text}
+          </div>
+          <div className="Comment-date">
+            {formatDate(props.date)}
+          </div>
+        </div>
+      )
+    }
+
+    // UserInfo 用户信息组件(包含了 Avatar组件)
+    functon UserInfo(props){
+      return (
+        <div class="UserInfo">
+          <Avatar user={props.user} />
+          <div className="UserInfo-name">
+            {props.user.name}
+          </div>
+        </div>
+      )
+    }
+
+    // 于是 Comment 组件简化为:
+    function Comment(props){
+      return ( // props.author 传给组件的 props.user, props.user 再传给子组件的 props.user
+        <div className="Comment">
+          <UserInfo user={props.author} />
+          <div className="Comment-text">
+            {props.text}
+          </div>
+          <div className="Comment-date">
+            {formatDate(props.date)}
+          </div>
+        </div>
+      )
+    }
+
+    /*
+      抽离组件看似麻烦, 但其高复用性是构建大型 apps 必不可少的
+      一般经验来说,按钮,面板,用户画像,App,评论等都应该抽离成可复用的组件
+
+      最后, 所有的 React 组件应该表现出 pure functions 特性, 即不会改变其 props 对象, 即使 State 也是如此
+    */
+	</script>
+
+
+</body>
+</html>

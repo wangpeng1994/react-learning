@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+
+	<script type="text/babel">
+		// 组件就像是 function，接受参数，返回应该被显示在屏幕上的 React 元素
+
+		// 定义组件
+		// functional components
+		function Welcome(props){
+			return <h1>Hell, {props.name}</h1>
+		}
+
+		// 下面的 ES6 class 和上面等价
+		class Welcome2 extends React.Component{
+			render(){
+				return <h1>Hello, {this.props.name}</h1>
+			}
+		}
+
+		// JSX,  属性作为 props 对象传入组件中
+		const element = <Welcome name="Vencent" /> // 如果上面没有定义 Welcome 组件,那么这里使用自定义标签,会提示 not defined
+		ReactDOM.render(
+			element,  // 组件声明后可以直接用,但想传入制定 props,就需要绕一下
+			document.querySelector('#root')
+		)
+		// 屏幕上输出 Hell, Vencent
+		/*
+			1. 人工调用 ReactDOM.render() 处理 <Welcome name="Vencent" />
+			2. React 调用 Welcome 组件并传入 props对象: {name: 'Vencent'}
+			3. Welcome 组件返回 <h1>Hell, {props.name}</h1> 作为结果
+			4. React DOM 更新浏览器DOM,以展现 <h1>Hello, Sara</h1>
+
+			注意 组件首字母大写, 否则 React 会当成 HTML tag 来处理, 并且作用域内要声明定义组件
+		*/
+
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Composing Components抽离组件</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+
+  <script type="text/babel">
+    function Clock(props){
+      return (
+        <div>
+          <h1>Hello, world!</h1>
+          <h2>It is {props.date.toLocaleTimeString()}.</h2>
+        </div>
+      )
+    }
+    function tick(){
+      ReactDOM.render(
+        <Clock date={new Date()} />,
+        document.getElementById('root')
+      );
+    }
+    setInterval(tick, 1000);
+ 
+     // 以上虽然可以, 但是本质上还是设置了定时器, 而实际上更新 UI 应该是组件内部的实现细节
+     
+    class Clock extends React.Component{
+      // a single empty method
+      render(){
+        return (
+          <div>
+            <h1>Hello, world!</h1>
+            <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
+          </div>
+        )
+      }
+    }
+    // 以上将 函数定义改为 class 定义, 以便接下来使用 local state 和 lifecycle hooks
+
+    class Clock extends React.Component{
+      constructor(props){
+        super(props) //访问和调用父对象上的函数 Class components should always call the base constructor with props.
+        this.state = {date: new Date()}
+      }
+
+      componentDidMount(){ // 此钩子在 DOM 渲染后执行
+        this.timerID = setInterval(
+          () => this.tick(),
+          1000
+        )
+      }
+
+      componetWillUnmount(){
+
+      }
+
+      render(){
+        return (
+          <div>
+            <h1>Hello, world!</h1>
+            <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Clock />,
+      document.getElementById('root')
+    )
+	</script>
+
+
+</body>
+</html>

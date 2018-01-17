@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+
+	<script type="text/babel">
+		function tick(){
+			const element = (
+				<div>
+					<h1>时钟！</h1>
+					<h2>
+						现在时间：{' '}
+						{new Date().toLocaleTimeString()}
+					</h2>
+				</div>
+			)
+			ReactDOM.render(
+				element,
+				document.querySelector('#root')
+			)
+		}
+	
+		setInterval(tick, 1000)
+
+		//尽管传入了整个UI树，但只有变化了的文本节点才被 ReactDOM更新
+		//考虑如何在必要的时候，UI发生改变，而不是如何随着时间推移如何改变
+	</script>
+
+
+</body>
+</html>

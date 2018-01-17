@@ -14,10 +14,37 @@
     <div id="root"></div>
     <script type="text/babel">
 
+      function makeName(user){
+        return user.firstName + ' ' + user.lastName
+      }
+
+      const user = {
+        firstName: 'Wang',
+        lastName: 'Peng',
+        avatarUrl: 'http://oy5wj3l9n.bkt.clouddn.com/5.jpg'
+      }
+
+      const element = (
+        // <div>
+        // <img src={user.avatarUrl} />
+        // <h1>I'm {makeName(user)}</h1>          
+        // </div>
+        <h1 className="greeting">nihao</h1>
+      )
+
+      const ele = React.createElement(
+        'h1',
+        {className: 'greeting'},
+        'nihao'
+      )
+      
       ReactDOM.render(
-        <h1>我是王鹏</h1>,
+        ele,
         document.querySelector('#root')
-      );
+      )
+      
+
+
 
     </script>
     <!--
