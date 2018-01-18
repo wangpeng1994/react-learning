@@ -40,7 +40,7 @@
       return (
         <button onClick={props.onClick}>
           Login
-        </button>
+        </button> // 这里的外面的onClick 是方法，里面的onClick 是对象的属性
       );
     }
 
@@ -51,6 +51,15 @@
         </button>
       );
     }
+
+    function LoginAndLogoutButton(props) {
+      return (
+        <button onClick={props.onClick}>
+          {props.children}
+        </button>
+      )
+    }
+
 
     class LoginControl extends React.Component {
       constructor(props) {
@@ -70,9 +79,19 @@
         // 条件渲染 使用 button 变量存储元素 控制有条件的渲染组件的某个部分
         let button = null
         if(isLoggedIn) {
-          button = <LogoutButton onClick={this.handleLogoutClick} />
+          //button = <LogoutButton onClick={this.handleLogoutClick} /> //这里的 OnClick 是属性
+          button = (
+            <LoginAndLogoutButton onClick={this.handleLogoutClick}>
+              登录
+            </LoginAndLogoutButton>
+          )  
         } else {
-          button = <LoginButton onClick={this.handleLoginClick} />
+          //button = <LoginButton onClick={this.handleLoginClick} />
+          button = (
+            <LoginAndLogoutButton onClick={this.handleLoginClick}>
+              注销
+            </LoginAndLogoutButton>
+          )
         }
 
         return (
