@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a22909e254544aa9e504"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "09f25bd527b03964738b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -923,6 +923,20 @@ process.umask = function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(15);
+} else {
+  module.exports = __webpack_require__(16);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 /**
@@ -959,20 +973,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
-  module.exports = __webpack_require__(16);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -1169,7 +1169,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -1346,7 +1346,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -1607,7 +1607,7 @@ module.exports = focusNode;
 "use strict";
 
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -1615,13 +1615,13 @@ var _reactDom = __webpack_require__(18);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _Toggle = __webpack_require__(27);
+var _App = __webpack_require__(27);
 
-var _Toggle2 = _interopRequireDefault(_Toggle);
+var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_Toggle2.default, null), document.getElementById('root'));
+_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
 /* 15 */
@@ -1643,7 +1643,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var m = __webpack_require__(3),
     n = __webpack_require__(4),
-    p = __webpack_require__(1),
+    p = __webpack_require__(2),
     q = "function" === typeof Symbol && Symbol["for"],
     r = q ? Symbol["for"]("react.element") : 60103,
     t = q ? Symbol["for"]("react.call") : 60104,
@@ -1778,7 +1778,7 @@ if (process.env.NODE_ENV !== "production") {
     var emptyObject = __webpack_require__(4);
     var invariant = __webpack_require__(5);
     var warning = __webpack_require__(6);
-    var emptyFunction = __webpack_require__(1);
+    var emptyFunction = __webpack_require__(2);
     var checkPropTypes = __webpack_require__(7);
 
     // TODO: this is special because it gets imported during build.
@@ -3193,10 +3193,10 @@ if (process.env.NODE_ENV === 'production') {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var aa = __webpack_require__(2),
+var aa = __webpack_require__(1),
     l = __webpack_require__(8),
     B = __webpack_require__(3),
-    C = __webpack_require__(1),
+    C = __webpack_require__(2),
     ba = __webpack_require__(9),
     da = __webpack_require__(10),
     ea = __webpack_require__(11),
@@ -5240,7 +5240,7 @@ module.exports = isNode;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(2);var invariant=__webpack_require__(5);var warning=__webpack_require__(6);var ExecutionEnvironment=__webpack_require__(8);var _assign=__webpack_require__(3);var emptyFunction=__webpack_require__(1);var EventListener=__webpack_require__(9);var getActiveElement=__webpack_require__(10);var shallowEqual=__webpack_require__(11);var containsNode=__webpack_require__(12);var focusNode=__webpack_require__(13);var emptyObject=__webpack_require__(4);var checkPropTypes=__webpack_require__(7);var hyphenateStyleName=__webpack_require__(23);var camelizeStyleName=__webpack_require__(25);/**
+ */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(1);var invariant=__webpack_require__(5);var warning=__webpack_require__(6);var ExecutionEnvironment=__webpack_require__(8);var _assign=__webpack_require__(3);var emptyFunction=__webpack_require__(2);var EventListener=__webpack_require__(9);var getActiveElement=__webpack_require__(10);var shallowEqual=__webpack_require__(11);var containsNode=__webpack_require__(12);var focusNode=__webpack_require__(13);var emptyObject=__webpack_require__(4);var checkPropTypes=__webpack_require__(7);var hyphenateStyleName=__webpack_require__(23);var camelizeStyleName=__webpack_require__(25);/**
  * WARNING: DO NOT manually require this module.
  * This is a replacement for `invariant(...)` used by the error code system
  * and will _only_ be required by the corresponding babel pass.
@@ -8379,11 +8379,50 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _LoginControl = __webpack_require__(28);
+
+var _LoginControl2 = _interopRequireDefault(_LoginControl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function App(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_LoginControl2.default, null)
+  );
+}
+
+exports.default = App;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Greeting = __webpack_require__(29);
+
+var _Greeting2 = _interopRequireDefault(_Greeting);
+
+var _LoginAndLogoutButton = __webpack_require__(30);
+
+var _LoginAndLogoutButton2 = _interopRequireDefault(_LoginAndLogoutButton);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8393,52 +8432,135 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Toggle = function (_React$Component) {
-  _inherits(Toggle, _React$Component);
+var LoginControl = function (_React$Component) {
+  _inherits(LoginControl, _React$Component);
 
-  function Toggle(props) {
-    _classCallCheck(this, Toggle);
+  function LoginControl(props) {
+    _classCallCheck(this, LoginControl);
 
-    var _this = _possibleConstructorReturn(this, (Toggle.__proto__ || Object.getPrototypeOf(Toggle)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (LoginControl.__proto__ || Object.getPrototypeOf(LoginControl)).call(this, props));
 
-    _this.state = { isToggleOn: true };
+    _this.handleLoginClick = _this.handleLoginClick.bind(_this);
+    _this.handleLogoutClick = _this.handleLogoutClick.bind(_this);
+    _this.state = { isLoggedIn: false };
     return _this;
   }
 
-  _createClass(Toggle, [{
-    key: 'handleClick',
-    value: function handleClick(isToggleOn) {
-      alert(isToggleOn);
-      this.setState(function (prevState) {
-        return {
-          isToggleOn: !prevState.isToggleOn
-        };
-      });
+  _createClass(LoginControl, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var Data = JSON.parse(window.localStorage.getItem('isLoggedIn'));
+      if (Data === true) {
+        this.setState({ isLoggedIn: true });
+      }
+    }
+  }, {
+    key: 'handleLoginClick',
+    value: function handleLoginClick() {
+      window.localStorage.setItem('isLoggedIn', 'true');
+      this.setState({ isLoggedIn: true });
+    }
+  }, {
+    key: 'handleLogoutClick',
+    value: function handleLogoutClick() {
+      window.localStorage.setItem('isLoggedIn', 'false');
+      this.setState({ isLoggedIn: false });
     }
   }, {
     key: 'render',
     value: function render() {
+      var isLoggedIn = this.state.isLoggedIn;
+
+      var button = null;
+      if (isLoggedIn) {
+        button = _react2.default.createElement(
+          _LoginAndLogoutButton2.default,
+          { onClick: this.handleLogoutClick },
+          '\u6CE8\u9500'
+        );
+      } else {
+        button = _react2.default.createElement(
+          _LoginAndLogoutButton2.default,
+          { onClick: this.handleLoginClick },
+          '\u767B\u5F55'
+        );
+      }
+
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          '666\u70B9\u51FB\u4E0B\u9762\u7684\u6309\u94AE\u5207\u6362\u5F00\u5173\uFF1A'
-        ),
-        _react2.default.createElement(
-          'button',
-          { onClick: this.handleClick.bind(this, this.state.isToggleOn) },
-          this.state.isToggleOn ? '开启ing' : '已关闭'
-        )
+        _react2.default.createElement(_Greeting2.default, { isLoggedIn: isLoggedIn }),
+        button
       );
     }
   }]);
 
-  return Toggle;
+  return LoginControl;
 }(_react2.default.Component);
 
-exports.default = Toggle;
+exports.default = LoginControl;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Greeting(props) {
+  var isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return _react2.default.createElement(
+      'h1',
+      null,
+      '\u767B\u5F55\u6210\u529F\uFF0C\u6211\u662F\u4E00\u4E2A\u7B80\u5355\u7684\u9875\u9762\uFF01'
+    );
+  }
+  return _react2.default.createElement(
+    'h1',
+    null,
+    '\u670B\u53CB\uFF0C\u8BF7\u4F60\u767B\u5F55\uFF01'
+  );
+}
+
+exports.default = Greeting;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function LoginAndLogoutButton(props) {
+  return _react2.default.createElement(
+    'button',
+    { onClick: props.onClick },
+    props.children
+  );
+}
+
+exports.default = LoginAndLogoutButton;
 
 /***/ })
 /******/ ]);
